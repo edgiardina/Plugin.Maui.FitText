@@ -1,0 +1,32 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31611.283
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.Maui.FitText", "..\src\Plugin.Maui.FitText\Plugin.Maui.FitText.csproj", "{7DC043F9-FD74-3ACD-5BD6-ADD8E4A59AE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.Maui.FitText.Sample", "Plugin.Maui.FitText.Sample\Plugin.Maui.FitText.Sample.csproj", "{6754B6ED-2754-4190-7D17-6C5258F5AC1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DC043F9-FD74-3ACD-5BD6-ADD8E4A59AE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DC043F9-FD74-3ACD-5BD6-ADD8E4A59AE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DC043F9-FD74-3ACD-5BD6-ADD8E4A59AE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DC043F9-FD74-3ACD-5BD6-ADD8E4A59AE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6754B6ED-2754-4190-7D17-6C5258F5AC1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6754B6ED-2754-4190-7D17-6C5258F5AC1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6754B6ED-2754-4190-7D17-6C5258F5AC1D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6754B6ED-2754-4190-7D17-6C5258F5AC1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6754B6ED-2754-4190-7D17-6C5258F5AC1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6754B6ED-2754-4190-7D17-6C5258F5AC1D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Plugin.Maui.FitText.Sample.MainPage"
+             xmlns:fittext="clr-namespace:Plugin.Maui.FitText.Controls;assembly=Plugin.Maui.FitText"
+             Title="FitText Plugin">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20"
+                             Spacing="20">
+
+            <!-- Full width label -->
+            <fittext:FitTextLabel Text="This is a full-width FitTextLabel."
+                                  BackgroundColor="LightGray"
+                                  HeightRequest="60"
+                                  HorizontalTextAlignment="Center"
+                                  VerticalTextAlignment="Center" />
+
+            <!-- Full width button -->
+            <fittext:FitTextButton Text="Click This Button"
+                                   BackgroundColor="CornflowerBlue"
+                                   TextColor="White"
+                                   HeightRequest="60" />
+
+            <!-- Grid layout to show shrinking -->
+            <Label Text="Grid of shrinking labels and buttons:"
+                   FontAttributes="Bold" />
+
+            <Grid ColumnDefinitions="*,*"
+                  RowDefinitions="Auto,Auto"
+                  ColumnSpacing="10"
+                  RowSpacing="10">
+
+                <fittext:FitTextLabel Grid.Row="0"
+                                      Grid.Column="0"
+                                      Text="Small Box 1"
+                                      BackgroundColor="LightPink"
+                                      HeightRequest="50" />
+
+                <fittext:FitTextLabel Grid.Row="0"
+                                      Grid.Column="1"
+                                      Text="This is a slightly longer label"
+                                      BackgroundColor="PeachPuff"
+                                      HeightRequest="50" />
+
+                <fittext:FitTextButton Grid.Row="1"
+                                       Grid.Column="0"
+                                       Text="Tap A"
+                                       BackgroundColor="SlateBlue"
+                                       TextColor="White"
+                                       HeightRequest="50" />
+
+                <fittext:FitTextButton Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="Longer Button Label"
+                                       BackgroundColor="Teal"
+                                       TextColor="White"
+                                       HeightRequest="50" />
+            </Grid>
+
+            <!-- Very constrained FitTextLabel -->
+            <fittext:FitTextLabel Text="Tight fit"
+                                  BackgroundColor="LightYellow"
+                                  WidthRequest="100"
+                                  HeightRequest="30"
+                                  HorizontalTextAlignment="Center"
+                                  VerticalTextAlignment="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
