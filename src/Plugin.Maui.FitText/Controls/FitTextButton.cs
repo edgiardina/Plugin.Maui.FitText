@@ -8,16 +8,10 @@ namespace Plugin.Maui.FitText.Controls
 {
     public class FitTextButton : Button
     {
-        protected override void OnSizeAllocated(double width, double height)
+        public FitTextButton()
         {
-            base.OnSizeAllocated(width, height);
-            AdjustFontSize(width, height);
+            SizeChanged += (s, e) => InvalidateMeasure();
         }
 
-        private void AdjustFontSize(double width, double height)
-        {
-            if (string.IsNullOrEmpty(Text)) return;
-            FontSize = FitTextHelper.FindBestFontSize(Text, FontFamily, width, height);
-        }
     }
 }

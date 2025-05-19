@@ -20,6 +20,7 @@
             <fittext:FitTextButton Text="Click This Button"
                                    BackgroundColor="CornflowerBlue"
                                    TextColor="White"
+                                   Padding="30,0"
                                    HeightRequest="60" />
 
             <!-- Grid layout to show shrinking -->

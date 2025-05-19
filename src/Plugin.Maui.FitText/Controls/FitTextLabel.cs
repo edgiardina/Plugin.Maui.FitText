@@ -8,16 +8,22 @@ namespace Plugin.Maui.FitText.Controls
 {
     public class FitTextLabel : Label
     {
-        protected override void OnSizeAllocated(double width, double height)
+        public FitTextLabel()
         {
-            base.OnSizeAllocated(width, height);
-            AdjustFontSize(width, height);
+            SizeChanged += (s, e) => InvalidateMeasure();
         }
 
-        private void AdjustFontSize(double width, double height)
+        static FitTextLabel()
         {
-            if (string.IsNullOrEmpty(Text)) return;
-            FontSize = FitTextHelper.FindBestFontSize(Text, FontFamily, width, height);
+            Microsoft.Maui.Handlers.LabelHandler.Mapper.AppendToMapping("AdjustsFontSizeToFitWidth", (handler, view) =>
+            {
+#if IOS    
+                handler.PlatformView.AdjustsFontSizeToFitWidth = true;
+                handler.PlatformView.Lines = 1;
+                handler.PlatformView.BaselineAdjustment = UIKit.UIBaselineAdjustment.AlignCenters;
+                handler.PlatformView.LineBreakMode = UIKit.UILineBreakMode.Clip;
+#endif    
+            });
         }
     }
 }
