@@ -37,18 +37,23 @@ public static MauiApp CreateMauiApp()
 ### 3. Use the Controls
 
 ```xml
-<fittext:FitTextLabel
-    Text="Auto Resizing Label"
-    HorizontalOptions="Center"
-    VerticalOptions="Center"
-    WidthRequest="200"
-    HeightRequest="50" />
+<fittext:FitTextLabel Text="Hello World"
+                      MinFontSize="8"
+                      MaxFontSize="80"
+                      HorizontalOptions="Center"
+                      VerticalOptions="Center"
+                      BackgroundColor="LightGray"
+                      WidthRequest="200"
+                      HeightRequest="50" />
 
-<fittext:FitTextButton
-    Text="Tap Me"
-    WidthRequest="150"
-    HeightRequest="60"
-    Clicked="OnButtonClicked" />
+
+<fittext:FitTextButton Text="Tap Me"
+                       MinFontSize="10"
+                       MaxFontSize="60"
+                       BackgroundColor="SlateBlue"
+                       TextColor="White"
+                       WidthRequest="200"
+                       HeightRequest="50" />
 ```
 
 In your XAML, don't forget the namespace:
@@ -59,22 +64,17 @@ xmlns:fittext="clr-namespace:Plugin.Maui.FitText;assembly=Plugin.Maui.FitText"
 
 ---
 
+### Optional Properties
+
+| Property       | Type   | Description                                                  |
+|----------------|--------|--------------------------------------------------------------|
+| `MinFontSize`  | double | The smallest font size allowed when shrinking. Default: `10` |
+| `MaxFontSize`  | double | The starting size and upper bound. Default: `100`            |
+
+
 ## Samples
 
 A sample .NET MAUI app is included in the `/samples` directory, demonstrating how to use `FitTextLabel` and `FitTextButton`.
-
----
-
-## Publish to NuGet
-
-To publish:
-
-1. Tag your release like `v1.0.0` or `v1.0.0-preview1`.
-2. Push to GitHub.
-3. Ensure the `NUGET_API_KEY` GitHub secret is configured with a valid NuGet.org API key.
-4. The GitHub Action will build and publish the package.
-
-More info: [Publish a NuGet Package](https://learn.microsoft.com/nuget/nuget-org/publish-a-package)
 
 ---
 
