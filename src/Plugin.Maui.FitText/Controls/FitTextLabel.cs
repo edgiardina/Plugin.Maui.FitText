@@ -8,22 +8,22 @@ namespace Plugin.Maui.FitText.Controls
 {
     public class FitTextLabel : Label
     {
-        public FitTextLabel()
+        public static readonly BindableProperty MinFontSizeProperty =
+            BindableProperty.Create(nameof(MinFontSize), typeof(double), typeof(FitTextLabel), 10.0);
+
+        public static readonly BindableProperty MaxFontSizeProperty =
+            BindableProperty.Create(nameof(MaxFontSize), typeof(double), typeof(FitTextLabel), 100.0);
+
+        public double MinFontSize
         {
-            SizeChanged += (s, e) => InvalidateMeasure();
+            get => (double)GetValue(MinFontSizeProperty);
+            set => SetValue(MinFontSizeProperty, value);
         }
 
-        static FitTextLabel()
+        public double MaxFontSize
         {
-            Microsoft.Maui.Handlers.LabelHandler.Mapper.AppendToMapping("AdjustsFontSizeToFitWidth", (handler, view) =>
-            {
-#if IOS    
-                handler.PlatformView.AdjustsFontSizeToFitWidth = true;
-                handler.PlatformView.Lines = 1;
-                handler.PlatformView.BaselineAdjustment = UIKit.UIBaselineAdjustment.AlignCenters;
-                handler.PlatformView.LineBreakMode = UIKit.UILineBreakMode.Clip;
-#endif    
-            });
+            get => (double)GetValue(MaxFontSizeProperty);
+            set => SetValue(MaxFontSizeProperty, value);
         }
     }
 }

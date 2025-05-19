@@ -35,6 +35,7 @@
                 <fittext:FitTextLabel Grid.Row="0"
                                       Grid.Column="0"
                                       Text="Small Box 1"
+                                      MaxFontSize="90"
                                       BackgroundColor="LightPink"
                                       HeightRequest="50" />
 

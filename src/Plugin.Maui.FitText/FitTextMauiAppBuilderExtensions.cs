@@ -24,7 +24,11 @@ public static class FitTextMauiAppBuilderExtensions
             nativeLabel.BaselineAdjustment = UIKit.UIBaselineAdjustment.AlignCenters;
             nativeLabel.LineBreakMode = UIKit.UILineBreakMode.Clip;
 
-            nativeLabel.Font = nativeLabel.Font.WithSize(100);
+            var max = label.MaxFontSize;
+            var min = label.MinFontSize;
+
+            nativeLabel.MinimumScaleFactor = (nfloat)(min / max);
+            nativeLabel.Font = nativeLabel.Font.WithSize((nfloat)max);
         });
 
         ButtonHandler.Mapper.AppendToMapping("AdjustsFontSizeToFitWidth", (ButtonHandler handler, Button view) =>
@@ -37,8 +41,11 @@ public static class FitTextMauiAppBuilderExtensions
             titleLabel.BaselineAdjustment = UIKit.UIBaselineAdjustment.AlignCenters;
             titleLabel.LineBreakMode = UIKit.UILineBreakMode.Clip;
 
-            var startingSize = (nfloat)(button.FontSize > 0 ? button.FontSize : 17);
-            titleLabel.Font = titleLabel.Font.WithSize(100);
+            var max = button.MaxFontSize;
+            var min = button.MinFontSize;
+
+            titleLabel.MinimumScaleFactor = (nfloat)(min / max);
+            titleLabel.Font = titleLabel.Font.WithSize((nfloat)max);
         });
 #endif
         });
