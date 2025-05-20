@@ -21,6 +21,10 @@
 dotnet add package Plugin.Maui.FitText
 ```
 
+[![NuGet](https://img.shields.io/nuget/v/Plugin.Maui.FitText.svg?label=NuGet)](https://www.nuget.org/packages/Plugin.Maui.FitText/)
+
+Available on [NuGet](http://www.nuget.org/packages/Plugin.Maui.FitText).
+
 ### 2. Register the Plugin in `MauiProgram.cs`
 
 ```csharp
