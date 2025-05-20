@@ -1,5 +1,7 @@
 # Plugin.Maui.FitText
 
+![image](https://github.com/user-attachments/assets/b1b92faa-7d81-46f4-a883-c7a0ca5fc8e1)
+
 `Plugin.Maui.FitText` is a .NET MAUI plugin that provides two drop-in controls — `FitTextLabel` and `FitTextButton` — whose text automatically resizes to fit the available space. It uses platform-native font scaling on iOS and Android for optimal performance and appearance.
 
 ---
