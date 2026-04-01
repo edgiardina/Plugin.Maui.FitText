@@ -49,6 +49,5 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\src\Plugin.Maui.FitText\Plugin.Maui.FitText.csproj" />
-	  <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 	</ItemGroup>
 </Project>
