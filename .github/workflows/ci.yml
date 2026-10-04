@@ -28,4 +28,14 @@ jobs:
       run: dotnet workload restore samples\Plugin.Maui.FitText.Sample.sln
 
     - name: Build
-      run: dotnet build src\Plugin.Maui.FitText.sln -c Release
+      run: dotnet build src\Plugin.Maui.FitText.sln -c Release -p:UseMinimumMauiVersion=true
+
+    # Makes sure that the package builds. The release workflow does the real pack on a version tag.
+    - name: Pack
+      run: dotnet pack src\Plugin.Maui.FitText.sln -c Release -p:UseMinimumMauiVersion=true --no-build -p:PackageVersion=0.0.0-ci.${{ github.run_number }} -o artifacts
+
+    - name: Upload package
+      uses: actions/upload-artifact@v4
+      with:
+        name: nuget-package
+        path: artifacts/*.nupkg
