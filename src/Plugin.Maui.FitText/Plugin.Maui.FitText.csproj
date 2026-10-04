@@ -12,6 +12,12 @@
 		<Nullable>enable</Nullable>
 		<UseMaui>true</UseMaui>
 
+		<!-- The CI and release workflows set UseMinimumMauiVersion. The package then builds against the first .NET MAUI release of each .NET version,
+		     which is the minimum version that an app must have. Other builds use the .NET MAUI version of the installed workload,
+		     because the packaged Windows sample cannot reference two versions of .NET MAUI. -->
+		<MauiVersion Condition="'$(UseMinimumMauiVersion)' == 'true' AND $([MSBuild]::VersionEquals($([MSBuild]::GetTargetFrameworkVersion('$(TargetFramework)')), '9.0'))">9.0.0</MauiVersion>
+		<MauiVersion Condition="'$(UseMinimumMauiVersion)' == 'true' AND $([MSBuild]::VersionEquals($([MSBuild]::GetTargetFrameworkVersion('$(TargetFramework)')), '10.0'))">10.0.0</MauiVersion>
+
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
@@ -26,13 +32,13 @@
 		<PackageProjectUrl>https://github.com/edgiardina/Plugin.Maui.FitText</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/edgiardina/Plugin.Maui.FitText</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>dotnet-maui;maui;plugin;fit-text;</PackageTags>
+		<PackageTags>dotnet-maui;maui;plugin;fit-text;autosize;label;button;</PackageTags>
 		<IncludeSymbols>True</IncludeSymbols>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<Title>.NET MAUI Auto Fitting Text Controls</Title>
-		<Description>Plugin.Maui.FitText provides the ability to use autofitting text controls</Description>
+		<Description>Plugin.Maui.FitText provides a Label and a Button for .NET MAUI that change the font size to make the text fit the control.</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<DebugType>portable</DebugType>
@@ -73,8 +79,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="all" IsImplicitlyDefined="true" />
-		<PackageReference Include="System.Management" Version="7.0.0" Condition="$(TargetFramework.Contains('-windows')) == true" />
 	</ItemGroup>
 
 	<!-- Package additions -->

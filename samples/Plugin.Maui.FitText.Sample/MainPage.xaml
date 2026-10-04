@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Plugin.Maui.FitText.Sample.MainPage"
@@ -12,6 +12,7 @@
             <!-- Full width label -->
             <fittext:FitTextLabel Text="This is a full-width FitTextLabel."
                                   BackgroundColor="LightGray"
+                                  TextColor="Black"
                                   HeightRequest="60"
                                   HorizontalTextAlignment="Center"
                                   VerticalTextAlignment="Center" />
@@ -37,12 +38,14 @@
                                       Text="Small Box 1"
                                       MaxFontSize="90"
                                       BackgroundColor="LightPink"
+                                      TextColor="Black"
                                       HeightRequest="50" />
 
                 <fittext:FitTextLabel Grid.Row="0"
                                       Grid.Column="1"
                                       Text="This is a slightly longer label"
                                       BackgroundColor="PeachPuff"
+                                      TextColor="Black"
                                       HeightRequest="50" />
 
                 <fittext:FitTextButton Grid.Row="1"
@@ -63,10 +66,54 @@
             <!-- Very constrained FitTextLabel -->
             <fittext:FitTextLabel Text="Tight fit"
                                   BackgroundColor="LightYellow"
+                                  TextColor="Black"
                                   WidthRequest="100"
                                   HeightRequest="30"
                                   HorizontalTextAlignment="Center"
                                   VerticalTextAlignment="Center" />
+
+            <!-- MaxLines lets the text use more than one line -->
+            <Label Text="Two lines with MaxLines:"
+                   FontAttributes="Bold" />
+
+            <fittext:FitTextLabel Text="This label can use two lines before the text becomes smaller."
+                                  MaxLines="2"
+                                  MaxFontSize="40"
+                                  BackgroundColor="Lavender"
+                                  TextColor="Black"
+                                  HeightRequest="80" />
+
+            <!-- The text and the width change while the app runs -->
+            <Label Text="Change the text and the width:"
+                   FontAttributes="Bold" />
+
+            <Entry x:Name="TextEntry"
+                   Text="Type here"
+                   TextChanged="OnLiveValuesChanged"
+                   Placeholder="Text of the label and the button" />
+
+            <Slider x:Name="WidthSlider"
+                    Minimum="60"
+                    Maximum="320"
+                    Value="240"
+                    ValueChanged="OnLiveValuesChanged" />
+
+            <fittext:FitTextLabel x:Name="LiveLabel"
+                                  MinFontSize="8"
+                                  MaxFontSize="60"
+                                  BackgroundColor="LightGreen"
+                                  TextColor="Black"
+                                  HeightRequest="50"
+                                  HorizontalOptions="Start"
+                                  VerticalTextAlignment="Center" />
+
+            <fittext:FitTextButton x:Name="LiveButton"
+                                   MinFontSize="8"
+                                   MaxFontSize="60"
+                                   BackgroundColor="DarkOrange"
+                                   TextColor="White"
+                                   HeightRequest="50"
+                                   HorizontalOptions="Start" />
 
         </VerticalStackLayout>
     </ScrollView>
